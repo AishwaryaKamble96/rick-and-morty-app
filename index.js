@@ -13,7 +13,7 @@ const pagination = document.querySelector('[data-js="pagination"]');
 // States
 let maxPage = 1;
 let page = 1;
-const searchQuery = "";
+let searchQuery = "";
 
 async function fetchCharacters() {
   try {
@@ -22,7 +22,7 @@ async function fetchCharacters() {
     );
     // Data in Json
     const data = await response.json();
-    console.log(data);
+
     maxPage = data.info.pages;
     pagination.textContent = `${page} / ${maxPage}`;
 
@@ -47,8 +47,11 @@ searchBar.addEventListener("submit", (e) => {
 
 // Event listner for next button
 nextButton.addEventListener("click", () => {
-  page++;
-  pagination.textContent = `${page} / ${maxPage}`;
+  if (page < maxPage) {
+    page++;
+    pagination.textContent = `${page} / ${maxPage}`;
+  }
+
   fetchCharacters();
 });
 
@@ -58,7 +61,6 @@ prevButton.addEventListener("click", () => {
     page--;
     pagination.textContent = `${page} / ${maxPage}`;
   }
-
   fetchCharacters();
 });
 
