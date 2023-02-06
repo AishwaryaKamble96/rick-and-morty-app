@@ -1,6 +1,7 @@
 // const card = document.querySelector('.card');
 // const cardContainer = document.querySelector('[data-js="card-container"]');
 
+//Later:refactor character-> simplify it
 export function createCharacterCard(character) {
   const card = document.createElement("li");
   card.classList.add("card");
@@ -28,5 +29,3 @@ export function createCharacterCard(character) {
         `;
   return card;
 }
-
-//createCharacterCard();
