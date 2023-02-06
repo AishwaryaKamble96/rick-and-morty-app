@@ -2,6 +2,8 @@
 // const card = document.querySelector('.card');
 // const cardContainer = document.querySelector('[data-js="card-container"]');
 
+
+//Later:refactor character-> simplify it
 export function createCharacterCard(character) {
  const card = document.createElement('li');
  card.classList.add('card');
@@ -22,12 +24,9 @@ export function createCharacterCard(character) {
               <dt class="card__info-title">Type</dt>
               <dd class="card__info-description">${character.type}</dd>
               <dt class="card__info-title">Occurrences</dt>
-              <dd class="card__info-description">${character.episode}</dd>
+              <dd class="card__info-description">${character.episode.length}</dd>
             </dl>
           </div>
         `;
         return card;
 }
-
-
-createCharacterCard();
