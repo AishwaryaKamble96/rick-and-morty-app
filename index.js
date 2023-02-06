@@ -31,8 +31,9 @@ async function fetchCharacters() {
       const li = createCharacterCard(element);
       cardContainer.append(li);
     });
-  } catch {
-    console.error("Something went wrong");
+  } catch (error) {
+    console.error("Something went wrong=>", error);
+    cardContainer.innerHTML = "<h1>Not found</h1>";
   }
 }
 
