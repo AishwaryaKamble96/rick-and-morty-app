@@ -22,10 +22,13 @@ async function fetchCharacters() {
     const data = await response.json();
     console.log(data.results);
     data.results.forEach((element) => {
-      createCharacterCard(element);
+      const li = createCharacterCard(element);
+      cardContainer.append(li);
+      cardContainer.innerHTML = "";
     });
   } catch {
     console.error("Something went wrong");
   }
 }
+//cardContainer.append(fetchCharacters());
 fetchCharacters();
